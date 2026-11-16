@@ -1,0 +1,1 @@
+# Gestor de Software FJ: administra clientes, servicios y reservas en memoria
