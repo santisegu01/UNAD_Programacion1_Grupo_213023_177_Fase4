@@ -12,3 +12,6 @@ class ServicioInvalidoError(ErrorSoftwareFJ):
 
 class ReservaInvalidaError(ErrorSoftwareFJ):
     """Se usa cuando una reserva no se puede crear o procesar."""
+
+class ServicioNoDisponibleError(ErrorSoftwareFJ):
+    """Se usa cuando se intenta reservar un servicio que no está disponible."""
