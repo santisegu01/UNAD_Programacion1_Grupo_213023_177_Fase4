@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
-from cliente import EntidadGeneral 
+from cliente import EntidadGeneral
 from excepciones import ServicioInvalidoError
+
 
 class Servicio(EntidadGeneral, ABC):
     def __init__(self, codigo, nombre, precio_base):
@@ -17,8 +18,18 @@ class Servicio(EntidadGeneral, ABC):
     def validar_parametros(self, duracion):
         pass
 
+    def aplicar_descuento_e_impuesto(self, subtotal, impuesto, descuento):
+        """Parte común: descuento opcional e IVA del 19 %."""
+        total = subtotal
+        if descuento > 0:
+            total = total - (total * descuento)
+        if impuesto:
+            total = total + (total * 0.19)
+        return total
+
     def obtener_descripcion(self):
         return "Servicio: " + self.nombre + " | Codigo: " + self.codigo + " | Precio base: $" + str(self.precio_base)
+
 
 class ReservaSala(Servicio):
     def __init__(self, codigo, nombre, precio_base, capacidad):
@@ -31,14 +42,11 @@ class ReservaSala(Servicio):
 
     def calcular_costo(self, duracion, impuesto=False, descuento=0.0):
         self.validar_parametros(duracion)
-        total = self.precio_base * duracion
-        
-        if descuento > 0:
-            total = total - (total * descuento)
-        if impuesto:
-            total = total + (total * 0.19)
-            
-        return total
+        subtotal = self.precio_base * duracion
+        if duracion >= 4:
+            subtotal = subtotal * 0.90  # 10 % de descuento por reserva larga
+        return self.aplicar_descuento_e_impuesto(subtotal, impuesto, descuento)
+
 
 class AlquilerEquipo(Servicio):
     def __init__(self, codigo, nombre, precio_base, tipo_equipo):
@@ -51,14 +59,10 @@ class AlquilerEquipo(Servicio):
 
     def calcular_costo(self, duracion, impuesto=False, descuento=0.0):
         self.validar_parametros(duracion)
-        total = self.precio_base * duracion
-        
-        if descuento > 0:
-            total = total - (total * descuento)
-        if impuesto:
-            total = total + (total * 0.19)
-            
-        return total
+        subtotal = self.precio_base * duracion
+        subtotal = subtotal * 1.10  # recargo del 10 % por seguro del equipo
+        return self.aplicar_descuento_e_impuesto(subtotal, impuesto, descuento)
+
 
 class AsesoriaEspecializada(Servicio):
     def __init__(self, codigo, nombre, precio_base, area):
@@ -66,16 +70,12 @@ class AsesoriaEspecializada(Servicio):
         self.area = area
 
     def validar_parametros(self, duracion):
-        if duracion > 8:
-            raise ServicioInvalidoError("Una asesoria no puede durar mas de 8 horas en un mismo dia.")
+        if duracion <= 0 or duracion > 8:
+            raise ServicioInvalidoError("Una asesoria debe durar entre 1 y 8 horas en un mismo dia.")
 
     def calcular_costo(self, duracion, impuesto=False, descuento=0.0):
         self.validar_parametros(duracion)
-        total = self.precio_base * duracion
-        
-        if descuento > 0:
-            total = total - (total * descuento)
-        if impuesto:
-            total = total + (total * 0.19)
-            
-        return total
+        horas_normales = min(duracion, 4)
+        horas_extra = max(duracion - 4, 0)
+        subtotal = (self.precio_base * horas_normales) + (self.precio_base * 1.25 * horas_extra)
+        return self.aplicar_descuento_e_impuesto(subtotal, impuesto, descuento)
