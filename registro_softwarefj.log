@@ -1,37 +1,63 @@
-2026-11-17 21:40:30,727 | INFO | === INICIO DE LA SIMULACION SOFTWARE FJ ===
-2026-11-17 21:40:30,727 | INFO | Servicio agregado: Sala de juntas
-2026-11-17 21:40:30,727 | INFO | Servicio agregado: Portatil
-2026-11-17 21:40:30,727 | INFO | Servicio agregado: Asesoria en Python
-2026-11-17 21:40:30,727 | INFO | Servicio agregado: Proyector
-2026-11-17 21:40:30,728 | INFO | Operacion 1: Registrar cliente valido (Ana)
-2026-11-17 21:40:30,728 | INFO | Cliente registrado: Ana Perez
-2026-11-17 21:40:30,728 | INFO | Fin de la operación: registrar cliente
-2026-11-17 21:40:30,728 | INFO | Operacion 2: Registrar cliente valido (Carlos)
-2026-11-17 21:40:30,728 | INFO | Cliente registrado: Carlos Ruiz
-2026-11-17 21:40:30,729 | INFO | Fin de la operación: registrar cliente
-2026-11-17 21:40:30,729 | INFO | Operacion 3: Registrar cliente con telefono invalido (ERROR esperado)
-2026-11-17 21:40:30,729 | ERROR | No se pudo registrar el cliente: El teléfono debe tener entre 7 y 10 dígitos numéricos.
-2026-11-17 21:40:30,729 | INFO | Fin de la operación: registrar cliente
-2026-11-17 21:40:30,730 | INFO | Operacion 4: Reservar sala de juntas 3 horas
-2026-11-17 21:40:30,730 | INFO | Reserva 1 confirmada para el cliente Ana Perez
-2026-11-17 21:40:30,730 | INFO | Fin de la operación: crear reserva 1
-2026-11-17 21:40:30,732 | INFO | Operacion 5: Reservar portatil 2 dias
-2026-11-17 21:40:30,732 | INFO | Reserva 2 confirmada para el cliente Carlos Ruiz
-2026-11-17 21:40:30,733 | INFO | Fin de la operación: crear reserva 2
-2026-11-17 21:40:30,733 | INFO | Operacion 6: Reservar asesoria 2 horas
-2026-11-17 21:40:30,733 | INFO | Reserva 3 confirmada para el cliente Ana Perez
-2026-11-17 21:40:30,733 | INFO | Fin de la operación: crear reserva 3
-2026-11-17 21:40:30,734 | INFO | Operacion 7: Reservar con cliente inexistente (ERROR esperado)
-2026-11-17 21:40:30,734 | ERROR | No se pudo crear la reserva 4: No existe el cliente 99
-2026-11-17 21:40:30,734 | INFO | Fin de la operación: crear reserva 4
-2026-11-17 21:40:30,734 | INFO | Operacion 8: Asesoria de 10 horas (ERROR esperado)
-2026-11-17 21:40:30,734 | ERROR | No se pudo crear la reserva 5: Una asesoria debe durar entre 1 y 8 horas en un mismo dia.
-2026-11-17 21:40:30,734 | INFO | Fin de la operación: crear reserva 5
-2026-11-17 21:40:30,734 | INFO | Operacion 9: Reservar servicio no disponible (ERROR encadenado esperado)
-2026-11-17 21:40:30,734 | ERROR | No se pudo procesar la reserva 6: El servicio Proyector no esta disponible por el momento.
-2026-11-17 21:40:30,734 | ERROR | No se pudo crear la reserva 6: Error al procesar la reserva.
-2026-11-17 21:40:30,735 | INFO | Fin de la operación: crear reserva 6
-2026-11-17 21:40:30,735 | INFO | Operacion 10: Cancelar la reserva 1
-2026-11-17 21:40:30,735 | INFO | Reserva 1 cancelada exitosamente.
-2026-11-17 21:40:30,735 | INFO | Fin de la operación: cancelar reserva 1
-2026-11-17 21:40:30,735 | INFO | === FIN DE LA SIMULACION: el sistema no colapso ===
+2026-11-17 22:07:28,345 | INFO | === INICIO DE LA SIMULACION SOFTWARE FJ ===
+2026-11-17 22:07:28,346 | INFO | Operacion 1: Registrar cliente valido (Ana)
+2026-11-17 22:07:28,346 | INFO | Cliente registrado: Ana Perez
+2026-11-17 22:07:28,346 | INFO | Fin de la operación: registrar cliente
+2026-11-17 22:07:28,346 | INFO | Operacion 2: Registrar cliente valido (Carlos)
+2026-11-17 22:07:28,346 | INFO | Cliente registrado: Carlos Ruiz
+2026-11-17 22:07:28,346 | INFO | Fin de la operación: registrar cliente
+2026-11-17 22:07:28,347 | INFO | Operacion 3: Registrar cliente con telefono invalido (ERROR esperado)
+2026-11-17 22:07:28,347 | ERROR | No se pudo registrar el cliente: El teléfono debe tener entre 7 y 10 dígitos numéricos.
+2026-11-17 22:07:28,348 | INFO | Fin de la operación: registrar cliente
+2026-11-17 22:07:28,348 | INFO | Operacion 4: Crear servicio valido: sala de juntas
+2026-11-17 22:07:28,348 | INFO | Servicio creado: Sala de juntas
+2026-11-17 22:07:28,348 | INFO | Fin de la operación: crear servicio S01
+2026-11-17 22:07:28,348 | INFO | Operacion 5: Crear servicio valido: alquiler de portatil
+2026-11-17 22:07:28,349 | INFO | Servicio creado: Portatil
+2026-11-17 22:07:28,349 | INFO | Fin de la operación: crear servicio E01
+2026-11-17 22:07:28,349 | INFO | Operacion 6: Crear servicio valido: asesoria en Python
+2026-11-17 22:07:28,349 | INFO | Servicio creado: Asesoria en Python
+2026-11-17 22:07:28,349 | INFO | Fin de la operación: crear servicio A01
+2026-11-17 22:07:28,349 | INFO | Operacion 7: Crear proyector y dejarlo no disponible
+2026-11-17 22:07:28,349 | INFO | Servicio creado: Proyector
+2026-11-17 22:07:28,349 | INFO | Fin de la operación: crear servicio E02
+2026-11-17 22:07:28,349 | INFO | Operacion 8: Crear servicio con precio negativo (ERROR esperado)
+2026-11-17 22:07:28,349 | ERROR | No se pudo crear el servicio S02: El precio base debe ser un numero mayor que cero.
+2026-11-17 22:07:28,350 | INFO | Fin de la operación: crear servicio S02
+2026-11-17 22:07:28,350 | INFO | Operacion 9: Reservar sala de juntas 3 horas
+2026-11-17 22:07:28,350 | INFO | Reserva 1 confirmada para el cliente Ana Perez
+2026-11-17 22:07:28,350 | INFO | Fin de la operación: crear reserva 1
+2026-11-17 22:07:28,350 | INFO | Operacion 10: Reservar portatil 2 dias
+2026-11-17 22:07:28,350 | INFO | Reserva 2 confirmada para el cliente Carlos Ruiz
+2026-11-17 22:07:28,350 | INFO | Fin de la operación: crear reserva 2
+2026-11-17 22:07:28,350 | INFO | Operacion 11: Reservar asesoria 2 horas
+2026-11-17 22:07:28,350 | INFO | Reserva 3 confirmada para el cliente Ana Perez
+2026-11-17 22:07:28,351 | INFO | Fin de la operación: crear reserva 3
+2026-11-17 22:07:28,351 | INFO | Operacion 12: Reservar con cliente inexistente (ERROR esperado)
+2026-11-17 22:07:28,351 | ERROR | No se pudo crear la reserva 4: No existe el cliente 99
+2026-11-17 22:07:28,351 | INFO | Fin de la operación: crear reserva 4
+2026-11-17 22:07:28,351 | INFO | Operacion 13: Asesoria de 10 horas (ERROR esperado)
+2026-11-17 22:07:28,351 | ERROR | No se pudo crear la reserva 5: Una asesoria debe durar entre 1 y 8 horas en un mismo dia.
+2026-11-17 22:07:28,351 | INFO | Fin de la operación: crear reserva 5
+2026-11-17 22:07:28,352 | INFO | Operacion 14: Reservar servicio no disponible (ERROR encadenado esperado)
+2026-11-17 22:07:28,352 | ERROR | No se pudo procesar la reserva 6: El servicio Proyector no esta disponible por el momento.
+2026-11-17 22:07:28,352 | ERROR | No se pudo crear la reserva 6: Error al procesar la reserva.
+2026-11-17 22:07:28,352 | INFO | Fin de la operación: crear reserva 6
+2026-11-17 22:07:28,352 | INFO | Operacion 15: Cotizar la sala 3 horas: sin extras, con impuesto, con descuento y con ambos
+2026-11-17 22:07:28,352 | INFO | Cotizacion Sala de juntas x 3 (impuesto=False, descuento=0.0): $150000
+2026-11-17 22:07:28,352 | INFO | Fin de la operación: cotizar S01
+2026-11-17 22:07:28,352 | INFO | Cotizacion Sala de juntas x 3 (impuesto=True, descuento=0.0): $178500.0
+2026-11-17 22:07:28,352 | INFO | Fin de la operación: cotizar S01
+2026-11-17 22:07:28,352 | INFO | Cotizacion Sala de juntas x 3 (impuesto=False, descuento=0.1): $135000.0
+2026-11-17 22:07:28,353 | INFO | Fin de la operación: cotizar S01
+2026-11-17 22:07:28,353 | INFO | Cotizacion Sala de juntas x 3 (impuesto=True, descuento=0.1): $160650.0
+2026-11-17 22:07:28,353 | INFO | Fin de la operación: cotizar S01
+2026-11-17 22:07:28,353 | INFO | Operacion 16: Cotizar con descuento inconsistente de 150 % (ERROR esperado)
+2026-11-17 22:07:28,353 | ERROR | No se pudo cotizar S01: El descuento debe estar entre 0 y 1.
+2026-11-17 22:07:28,353 | INFO | Fin de la operación: cotizar S01
+2026-11-17 22:07:28,353 | INFO | Operacion 17: Cancelar la reserva 1
+2026-11-17 22:07:28,353 | INFO | Reserva 1 cancelada exitosamente.
+2026-11-17 22:07:28,353 | INFO | Fin de la operación: cancelar reserva 1
+2026-11-17 22:07:28,354 | INFO | Operacion 18: Cancelar de nuevo la reserva 1 (ERROR esperado)
+2026-11-17 22:07:28,354 | ERROR | No se pudo cancelar la reserva 1: No se puede cancelar una reserva que ya fue cancelada.
+2026-11-17 22:07:28,354 | INFO | Fin de la operación: cancelar reserva 1
+2026-11-17 22:07:28,354 | INFO | === FIN DE LA SIMULACION: el sistema no colapso ===
