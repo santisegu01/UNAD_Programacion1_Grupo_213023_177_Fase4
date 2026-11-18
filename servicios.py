@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from cliente import EntidadGeneral 
+from excepciones import ServicioInvalidoError
 
 class Servicio(EntidadGeneral, ABC):
     def __init__(self, codigo, nombre, precio_base):
@@ -19,14 +20,14 @@ class Servicio(EntidadGeneral, ABC):
     def obtener_descripcion(self):
         return "Servicio: " + self.nombre + " | Codigo: " + self.codigo + " | Precio base: $" + str(self.precio_base)
 
-class ReservaSalas(Servicio):
+class ReservaSala(Servicio):
     def __init__(self, codigo, nombre, precio_base, capacidad):
         super().__init__(codigo, nombre, precio_base)
         self.capacidad = capacidad
 
     def validar_parametros(self, duracion):
         if duracion <= 0:
-            raise ValueError("La reserva de la sala debe ser de al menos 1 hora.")
+            raise ServicioInvalidoError("La reserva de la sala debe ser de al menos 1 hora.")
 
     def calcular_costo(self, duracion, impuesto=False, descuento=0.0):
         self.validar_parametros(duracion)
@@ -39,14 +40,14 @@ class ReservaSalas(Servicio):
             
         return total
 
-class AlquilerEquipos(Servicio):
+class AlquilerEquipo(Servicio):
     def __init__(self, codigo, nombre, precio_base, tipo_equipo):
         super().__init__(codigo, nombre, precio_base)
         self.tipo_equipo = tipo_equipo
 
     def validar_parametros(self, duracion):
         if duracion < 1:
-            raise ValueError("El alquiler del equipo es por dias completos (minimo 1).")
+            raise ServicioInvalidoError("El alquiler del equipo es por dias completos (minimo 1).")
 
     def calcular_costo(self, duracion, impuesto=False, descuento=0.0):
         self.validar_parametros(duracion)
@@ -66,7 +67,7 @@ class AsesoriaEspecializada(Servicio):
 
     def validar_parametros(self, duracion):
         if duracion > 8:
-            raise ValueError("Una asesoria no puede durar mas de 8 horas en un mismo dia.")
+            raise ServicioInvalidoError("Una asesoria no puede durar mas de 8 horas en un mismo dia.")
 
     def calcular_costo(self, duracion, impuesto=False, descuento=0.0):
         self.validar_parametros(duracion)
